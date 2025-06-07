@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<div class='guestbook-page'>
+    <h1 style="color:#003999; padding-top:50px;">#guestbook</h1>
+    <div class='custom-hr'>
+    </div>
+    <div class='form-container'>
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label for="{{ form.name.id_for_label }}">이름</label>
+                {{ form.name }}
+                {% if form.name.errors %}
+                <div class="form-error">{{ form.name.errors }}</div>
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.message.id_for_label }}">메시지</label>
+                {{ form.message }}
+                {% if form.message.errors %}
+                <div class="form-error">{{ form.message.errors }}</div>
+                {% endif %}
+            </div>
+            <div class='form-group-action'>
+                <button type="submit" class="btn btn-outline-success">등록</button>
+            </div>
+            <hr style="border:1px solid;">
+        </form>
+    </div>
+    <div>
+        <ul>
+            {% for entry in entries %}
+                <li>
+                    <strong>{{ entry.name }}</strong> ({{ entry.created_at|date:"Y-m-d H:i" }})<br>
+                    {{ entry.message|linebreaksbr }}
+                </li>
+                <hr>
+            {% empty %}
+                <p>아직 작성된 방명록이 없습니다.</p>
+            {% endfor %}
+        </ul>
+
+
+        <div class="pagination">
+            {% if entries.has_previous %}
+                <a href="?page={{ entries.previous_page_number }}">이전</a>
+            {% endif %}
+
+            <span>Page {{ entries.number }} of {{ entries.paginator.num_pages }}</span>
+
+            {% if entries.has_next %}
+                <a href="?page={{ entries.next_page_number }}">다음</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

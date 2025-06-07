@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<h1 style="color:#003999; padding-top:50px;">#프로젝트</h1>
+<div>
+    <div class='sprofile-section-desc-text'>
+        <p style='text-align:left; font-size:11pt;'>
+
+        </p>
+    </div>
+</div>
+
+<div class='custom-hr'>
+</div>
+<div style='padding-top:20px;'>
+    {% for project in all_projects%}
+    <a href="{% url 'blog:detail' project.pk %}">
+        <div class='project-item'
+            data-aos="fade-up" 
+            data-aos-delay="{{ forloop.counter0|add:'1'|add:'0' }}00"
+            data-aos-duration="600"
+        >
+            <div class='project-item-img'>
+                {% if project.image %}
+                <img src="{{ project.image.url }}" alt="{{ project.title }}">
+                {% else %}
+                <img src="{% static 'media/no_img.png' %}" alt="no image">
+                {% endif %}
+            </div>
+            <div class='project-item-desc'>
+                <div class='project-item-desc-title'>
+                    <h4>{{project.title}}</h4>
+                </div>
+                
+                <div class='project-item-desc-info'>
+                    <p>{{ project.content|striptags|truncatewords:50 }}</p>
+                </div>
+                <p class='project-created-time'>{{project.created_time}}</p>
+            </div>
+            
+        </div>
+    </a>
+    {% endfor %}
+</div>
+
+{% endblock %}

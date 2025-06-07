@@ -1,0 +1,13 @@
+
+
+.statement-item{
+    display: flex;
+    background-color: #c8daf9;
+    margin-bottom: 20px;
+    justify-content: space-between;
+}
+
+.statement-item:hover{
+    background-color: #c8daf9;
+    transform: translate(-3px) scale(1.05);
+}

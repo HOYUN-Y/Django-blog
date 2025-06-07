@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<h1 style="color:#003999; padding-top:50px;">#자료실</h1>
+<div class='custom-hr'>
+</div>
+<div style=' display:flex; justify-content: center; width:100%;'>
+
+    <div class='documents-container'>
+        {% for doc in documents %}
+        <div class='documents-container-item'>
+            <div class='doc-title'>
+                <p>{{doc.title}}</p>
+            </div>
+            <div class='doc-link'>
+                <a class='btn btn-outline-success' href="{{ doc.file.url }}" download>Download</a>
+                <a class='btn btn-secondary' href="{{ doc.file.url }}" target="_blank">온라인뷰어</a>
+            </div> 
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}

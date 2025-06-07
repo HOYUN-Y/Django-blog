@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<p>statesment_list.html</p>
+<h1 style="color:#003999; padding-top:20px;">#자기소개서</h1>
+<div>
+    <div class='sprofile-section-desc-text'>
+        
+        <h3 style='text-align:left; '>일을 대하는 방식, 삶을 대하는 태도.</h3>
+        <p style='text-align:left; font-size:11pt;'>
+        
+        </p>
+    </div>
+</div>
+<div class='custom-hr'>
+</div>
+
+<div style='padding-top:20px;'>
+    {% for statement in all_statements%}
+    <a href="{% url 'blog:statement_detail' statement.pk%}">
+        <div class='statement-item'>
+            <div class='statement-item-desc'>
+                <div class='statement-item-desc-title'>
+                    <h4>[{{statement.sub_title}}] {{statement.title}}</h4>
+                </div>
+
+            </div>
+            <div>
+                <p class='statement-created-time'>{{statement.created_time}}</p>
+            </div>
+        </div>
+    </a>
+    {% endfor %}
+</div>
+
+{% endblock %}

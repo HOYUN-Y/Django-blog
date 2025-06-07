@@ -1,0 +1,127 @@
+
+.profile-section-container{
+}
+
+.profile-section-img-container {
+    width:40%;
+    min-width: 120px;
+    max-width: 300px;
+}
+
+.profile-section-img-container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+.profile-section-desc-text {
+    flex: 1;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: 50px;
+}
+
+.profile-section-desc-text p{
+    font-size: 13pt;
+}
+.profile-section-btn{
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+.profile-section-btn-left{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.profile-section-desc-center{
+    padding-top:50px; 
+    display: flex; 
+    justify-content:center; 
+    flex-direction: column; 
+    align-items:center;
+}
+.profile-section-desc-center-text{
+    font-size: 12pt;
+    width: 80%;
+}
+.profile-section-desc-center p{
+    
+}
+
+.profile-section h5{
+    color: #003999;
+    font-weight: bold;
+    padding-bottom: 20px;
+}
+
+.profile-bottom-container{
+    display: flex;
+    justify-content: flex-end;
+    padding: 50px;
+}
+
+.profile-img-wrapper{
+    width: 100%;
+    text-align: center;
+    margin: 20px 0;
+    padding-bottom: 20px;
+    
+}
+
+.profile-img-wrapper img{
+    width:60%;
+    max-width: 250px;
+    object-fit: cover;
+}
+
+@media (min-width: 1041px) {
+    .profile-section-container{
+        display:flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    .profile-img-wrapper{
+        display: none;
+    }
+    .profile-section-img-container{
+        display: block;
+    }
+
+    .profile-section-right{
+        text-align: right;
+    }
+}
+
+@media(max-width:1040px){
+    .profile-section-container{
+        flex-direction:column;
+    }
+    .profile-section-img-container{
+        display: none;
+    }
+
+    .profile-img-wrapper{
+        display: block;
+    }
+
+    .profile-section-btn-left{
+        justify-content: center;
+    }
+
+    .profile-section-text-right{
+        text-align: left;
+    }
+
+    .profile-section-btn{
+        justify-content: center;
+    }
+
+    .profile-section-desc-text{
+
+        padding-left:0 !important;
+    }
+}

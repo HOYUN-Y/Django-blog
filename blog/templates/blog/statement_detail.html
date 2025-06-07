@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<div>
+    <div class='profile-section-desc-center' style="padding-top:50px;">
+            <h1 style="font-size:35pt;">[{{post.sub_title}}] {{post.title}}</h1>
+            <div class='custom-hr'>
+            </div>
+            <div class='section-desc-text' style='padding: 20px;'>
+                <p style='text-align:left;'>
+                    {{post.content | safe}}
+                </p>
+            </div>
+
+            </div>
+            <div class='custom-hr'>
+            </div>
+            <div style="display:flex; justify-content:center; padding-bottom:30px; padding-top:50px;">
+
+                <a class='btn btn-primary' href="{% url 'blog:profile' %}">프로필로 돌아가기</a>
+            <div>
+    </div>
+    
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% load static %}
+
+<section id="profile-resume">
+    <div class='profile-section'>
+    <h5>#자기소개서</h5>
+        <div class='profile-section-container'>
+            
+            <div class='profile-section-desc'>
+                <div class='profile-section-desc-text' style="margin-right:20px;">
+                    <h1>일을 대하는 방식, 삶을 대하는 태도.</h1>
+                    <div class='profile-img-wrapper'>
+                        <img src="{% static 'media/statements_photo.png' %}" alt="no image" style="object-fit:cover;">
+                    </div>
+                    <p>
+                    어떤 문제든 분석하고, 끝까지 해보는 사람이 되고자 합니다.
+                    제가 어떤 고민을 해왔고, 무엇을 배웠으며, 앞으로 어떤 방향으로 나아가고자 하는지 담은 자기소개서를 소개합니다.
+                    단순히 '성과'를 나열하는 글이 아니라, 제가 어떤 방식으로 일하고, 실패와 갈등을 어떻게 다루며, 어떤 가치를 추구하는 사람인지를 보여주는 글입니다.
+                    </p>
+                    <p>
+                    진심을 담은 이야기이기에, 이 글을 통해 저라는 사람을 조금 더 가까이 이해하실 수 있기를 바랍니다.
+                    </p>
+                </div>
+                <div class='profile-section-btn-left'>
+                    <a class='btn btn-primary' href="{% url 'blog:statement_detail' 4 %}">자기소개서 보러가기</a>
+                </div>
+            </div>
+            <div class='profile-section-img-container'>
+                <img src="{% static 'media/statements_photo.png' %}" alt="no image" style="object-fit:cover;">
+            </div>
+            
+                
+            
+        </div>
+    </div>
+    
+    
+</section>

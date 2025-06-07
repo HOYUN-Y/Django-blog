@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load static %}
+<div class='home-total'>
+    <div class='profile-container'>
+
+        <div class='profile-container-title'>
+            <h1>[호윤]의 블로그</h1>
+        </div>
+
+        <div class='profile-container-desc'>
+            <div class='profile-container-desc-text'>
+                <p>
+                <strong style="font-size: 18pt;">성장</strong>과
+                <strong style="font-size: 18pt;">변화의 과정</strong>을 함께 나누며,
+                한 걸음씩 나아갑니다.
+                <br><br>
+                방문해주신 모든 분들께 감사드립니다.
+                </p>
+                
+            </div>
+            <div class='profile-container-desc-photo'>
+                <!--<img src="{% static 'media/main_photo.svg'%}" alt='logo' height="400px">-->
+            </div>
+        </div>
+
+        <div class='profile-container-action'>
+            <a class='btn btn-primary' href="{% url 'blog:profile' %}">프로필</a>
+        </div>
+    </div>
+
+    <div class='profile-recent-post'>
+        <div style='display:flex; justify-content: flex-start;'>
+            <h1>최근 작성글</h1>
+            <h3  style='margin-left:0px; display:flex; justify-content: center; align-items: center;'><a class='btn btn-link' href="{% url 'blog:list' %}">글 더보기</a></h3>
+        </div>
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                {% for post in recent_posts %}
+                <div class="swiper-slide">
+                    <a href="{% url 'blog:detail' post.pk %}">
+                    {% if post.image %}
+                        <img src="{{ post.image.url }}" alt="{{ post.title }}" style="width:100%; height:250px; object-fit:cover;">
+                    {% else %}
+                        <img src="{% static 'media/no_img.png' %}" alt="no image" style="width:100%; height:250px; object-fit:cover;">
+                    {% endif %}
+                    <h4 style="text-align:center; margin:10px 0;">{{ post.title }}</h4>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="swiper-pagination">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+const swiper = new Swiper('.mySwiper', {
+  loop: true,
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false,
+  },
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+});
+</script>
+
+
+{% endblock %}

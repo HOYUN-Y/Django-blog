@@ -1,0 +1,37 @@
+
+.home-total{
+    padding-top:50px;
+}
+.profile-container{
+    background-color: white;
+    position: relative;
+    z-index: 10;
+    padding-bottom: 50px;
+}
+
+.profile-container-title h1{
+    font-size: 35pt;
+    color: #003999;
+    font-weight: bold;
+}
+.profile-container-desc{
+    display:flex;
+    justify-content:space-between;
+
+}
+
+.profile-container-desc-text{
+    width: 100%;
+    
+}
+.profile-container-desc-text h3{
+    font-size: 20pt;
+}
+.profile-container-desc-text p{
+    font-size: 15pt;
+}
+
+.profile-container-action{
+    display: flex;
+    justify-content: center;
+}

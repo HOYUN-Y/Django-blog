@@ -1,0 +1,42 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+{% load static %}
+<h1 style="color:#003999; padding-top:50px; padding-bottom:0px;">#프로필</h1>
+
+<section data-aos="fade-up">
+    {% include "blog/sections/profile_intro.html" %}
+    <hr style="margin-top: 50px; margin-bottom: 100px;">
+</section>
+
+<section data-aos="fade-up">
+    {% include "blog/sections/profile_intro_2.html" %}
+    <hr style="margin-top: 50px; margin-bottom: 100px;">
+</section>
+<section data-aos="fade-up">
+    {% include "blog/sections/profile_resume.html" %}
+    <hr style="margin-top: 50px; margin-bottom: 100px;">    
+</section>
+<section data-aos="fade-up">
+    {% include "blog/sections/profile_projects.html" %}
+    <hr style="margin-top: 50px; margin-bottom: 100px;">
+</section>
+<section data-aos="fade-up">
+    {% include "blog/sections/profile_statements.html" %}
+    <hr style="margin-top: 50px; margin-bottom: 100px;">
+</section>
+<section data-aos="fade-up">
+    {% include "blog/sections/profile_contact.html" %}
+    <div class='custom-hr'>
+    </div>
+</section>
+<section data-aos="fade-up">
+    <div class="profile-bottom-container">
+        <a class='btn btn-primary' href="{% url 'blog:home' %}" style='font-size:13pt;'>메인페이지로 이동</a>
+    </div>
+</section>
+<section data-aos="fade-up">
+</section>
+
+{% endblock %}

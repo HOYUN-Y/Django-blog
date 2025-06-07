@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<div class='page-404'>
+    <div class='page-404-emot'>; (</div>
+    <div class='page-404-text'>
+        <h1>SORRY<br>
+            404 OR NOT...
+        </h1>
+        <p>This isn't the page you're looking for. <br>
+        Click the button below to go back to home.</p>
+
+        <a href="{% url 'home' %}" class="btn btn-primary mt-3">HOME</a>
+
+    </div>
+</div>
+
+
+{% endblock %}

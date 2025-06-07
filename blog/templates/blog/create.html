@@ -1,0 +1,15 @@
+
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<h3>create.html</h3>
+<h3>Post your essay</h3>
+
+
+<form method='POST' enctype = "multipart/form-data">
+    {% csrf_token %}
+    {{ form.media }}
+    {{ form.as_p }}
+    <input type="submit" class='btn btn-success' value='submit'>
+</form>
+{% endblock %}

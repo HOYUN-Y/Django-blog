@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<h1 style="color:#003999; padding-top:50px;">#작성글</h1>
+<div>
+    <div class='sprofile-section-desc-text'>
+        
+        <h3 style='text-align:left; '></h3>
+        <p style='text-align:left; font-size:11pt;'>
+
+        </p>
+    </div>
+</div>
+<div class='custom-hr'>
+</div>
+
+<div style="padding-top:20px;">
+<div class='search-box'>
+    <div class="view-toggle">
+        <button id="toggleViewBtn" class='btn btn-secondary'>리스트</button>
+    </div>
+
+    <form method='get' action=".">
+        <select class="form-select" name="type" onchange="this.form.submit()">
+            <option value="">--TYPE--</option>
+            <option value="blog" 
+                {%if request.GET.type == "blog" %}
+                selected
+                {%endif%}
+            >BLOG</option>
+            <option value="portfolio" 
+                {%if request.GET.type == "portfolio" %}
+                selected
+                {%endif%}
+            >PROJECTS</option>
+            
+        </select>
+    </form>
+    <form class='d-flex' role='search' method='post' action={% url 'blog:list' %}>
+        {% csrf_token %}
+        <input class='form-control me-2' type="search" name="search" placeholder="제목+본문" value = "{{search_kwd}}" aira-label="search">
+        <button class='btn btn-outline-success' type="submit">SEARCH</button>
+    </form>
+    <!--
+    <a class='btn btn-primary' href={% url 'blog:create'%}>ADD</a>
+    -->
+</div>
+
+
+<div id="postContainer" class='post-container grid-view'>
+    {% for post in all_posts %}
+
+        {% if post.image %}
+            <a href="{% url 'blog:detail' post.pk%}" class='post-card' data-aos="fade-up" data-aos-delay="{{ forloop.counter0|add:"1" }}00">
+                <div class='post-image'>
+                    <img src="{{ post.image.url }}" alt="{{ post.title }}">
+                </div>
+                <div class='post-title'>
+                    <h4>{{post.title}}</h4>
+                    <h5>{{post.updated_time}}</h5>
+                </div>
+            </a>
+        {% else %}
+            <a href="{% url 'blog:detail' post.pk%}" class='post-card no-image-card' data-aos="fade-up" data-aos-delay="{{ forloop.counter0|add:"1" }}00">
+                <div class='no-image-title'>
+                    <h4>{{post.title}}</h4>
+                    <h5>{{post.updated_time}}</h5>
+                </div>
+            </a>      
+        {% endif %}
+
+    {% endfor %}
+</div>
+</div>
+<!--
+{% for post in all_posts %}
+<div><a href="{% url 'blog:detail' post.pk %}">{{post.title}} </a></div>
+<h5><a href="{% url 'blog:detail' post.pk %}">{{post.title}} </a></h5>
+{% endfor %}
+-->
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const toggleBtn = document.getElementById('toggleViewBtn');
+    const postContainer = document.getElementById('postContainer');
+
+    toggleBtn.addEventListener('click', function () {
+        const isGrid = postContainer.classList.contains('grid-view');
+        const isMobile = window.innerWidth <= 1040;
+
+        if (isGrid) {
+            postContainer.classList.remove('grid-view');
+            postContainer.classList.add('list-view');
+            toggleBtn.textContent = '그리드';
+
+            // 모바일이면 AOS 제거
+            if (isMobile) {
+                document.querySelectorAll('.post-card').forEach(card => {
+                    card.removeAttribute('data-aos');
+                    card.removeAttribute('data-aos-delay');
+                });
+            }
+
+        } else {
+            postContainer.classList.remove('list-view');
+            postContainer.classList.add('grid-view');
+            toggleBtn.textContent = '리스트';
+
+            // 다시 AOS 속성 추가 (선택 사항)
+            document.querySelectorAll('.post-card').forEach((card, index) => {
+                card.setAttribute('data-aos', 'fade-up');
+                card.setAttribute('data-aos-delay', `${(index + 1) * 100}`);
+            });
+        }
+    });
+});
+</script>
+{% endblock %}

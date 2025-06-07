@@ -1,0 +1,38 @@
+{% load static %}
+
+<section id="profile-resume">
+    <div class='profile-section'>
+    <h5>#이력서</h5>
+        <div class='profile-section-container'>
+            
+            <div class='profile-section-desc'>
+                <div class='profile-section-desc-text'>
+                    
+                    <h1>신뢰를 담은 이력서입니다.</h1>
+                    <p>
+                        지금까지의 배움과 경험이 어떻게 연결되었는지 궁금하시다면 이력서를 확인해주세요.<br>
+                        단순한 이력 목록을 넘어, 제가 어떤 고민을 해왔고 어떤 가치를 추구하는 사람인지에 대한 단서가 남아있습니다.
+                    </p>
+                    <p>
+                        기술과 비즈니스 모두에 발을 담그며 성장해온 저의 여정을 이력서를 통해 만나보실 수 있습니다.
+                    </p>
+                </div>
+                <div class='profile-img-wrapper'>
+                    <img src="{% static 'media/resume_photo.png' %}" alt="no image" style="object-fit:cover;">
+                </div>
+                <div class='profile-section-btn-left'>
+                    <a class='btn btn-primary' href="{% url 'blog:resume' %}" style="margin-right:5px;">이력서 보러가기</a>
+                    <a class='btn btn-primary' href="{% url 'blog:documents' %}">자료실</a>
+                </div>
+            </div>
+            <div class='profile-section-img-container'>
+                <img src="{% static 'media/resume_photo.png' %}" alt="no image" style="object-fit:cover;">
+            </div>
+            
+                
+            
+        </div>
+    </div>
+    
+    
+</section>

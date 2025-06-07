@@ -1,0 +1,75 @@
+
+.documents-container{
+    padding-top: 100px;
+    width:80%;
+    gap: 20px;
+}
+
+.documents-container-item{
+    border: 2px solid #003999;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    margin: 10px;
+    display: flex;
+    border-radius: 0px;
+    align-items: center;
+}
+
+.doc-title {
+  flex: 1;
+  margin: 10px;
+}
+
+.doc-title p{
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.doc-link {
+  display: flex;
+  gap: 15px;
+
+}
+
+.doc-link a{
+  text-align: center;
+  margin: 10px;
+  height: fit-content;
+}
+
+
+@media (max-width: 768px) {
+  .documents-container {
+    width: 95%;
+    padding-top: 50px;
+  }
+
+  .documents-container-item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  .doc-title {
+    margin-bottom: 10px;
+  }
+
+  .doc-title p {
+    font-size: 1.1rem;  /* 모바일에선 작게 */
+    word-break: keep-all;
+  }
+
+  .doc-link {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .doc-link a {
+    width: 30%;
+    font-size: 0.9rem;
+    padding: 8px 0;
+    margin: 4px;
+    text-align: center;
+  }
+}
