@@ -1,9 +1,17 @@
 from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField
+import unicodedata
+import uuid
+import os
 
 
 def upload_to_path(instance, filename):
-    return f"documents/{instance.doc_type}/{filename}"
+    ext = filename.split('.')[-1]
+    base = unicodedata.normalize('NFKD', instance.title).encode('ascii','ignore').decode('ascii')
+    base = base.replace(' ','_') or 'file'
+    new_filename = f"{base}_{uuid.uuid4().hex[:8]}.{ext}"
+    return f"documents/{instance.doc_type}/{new_filename}"
+
 
 # Create your models here.
 class Posts(models.Model):
@@ -66,7 +74,13 @@ class Document(models.Model):
     title = models.CharField(max_length=255)
     doc_type = models.CharField(max_length=100, choices=DOCUMENT_TYPE_CHOICES, default='etc')
     file = models.FileField(upload_to=upload_to_path)
+    original_filename = models.CharField(max_length=255, blank=True)
     uploaded_time = models.DateTimeField(auto_now_add=True)
+
+    def save(self, *args, **kwargs):
+        if self.file and not self.original_filename:
+            self.original_filename = self.file.name
+        super().save(*args, **kwargs)
 
 
     def __str__(self):

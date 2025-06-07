@@ -4,6 +4,10 @@ from . import models
 from .forms import PostForm, GuestbookEntryForm
 from django.db.models import Q
 from django.core.paginator import Paginator
+from django.http import FileResponse
+from django.utils.encoding import smart_str
+from urllib.parse import quote
+import os
 
 # Create your views here.
 def landing_view(request):
@@ -91,6 +95,15 @@ def documents(request):
     documents = models.Document.objects.all().order_by('-uploaded_time')
     context = {'documents':documents}
     return render(request, 'blog/documents.html', context = context)
+
+
+def download_document(request, document_id):
+    doc = get_object_or_404(models.Document, pk=document_id)
+    file_path = doc.file.path
+    response = FileResponse(open(file_path,'rb'))
+    filename = quote(doc.original_filename)
+    response['Content-Disposition'] = f"attachment; filename*=UTF-8''{filename}"
+    return response
 
 #statements page
 def statement_list(request):

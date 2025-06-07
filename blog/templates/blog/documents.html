@@ -13,7 +13,7 @@
                 <p>{{doc.title}}</p>
             </div>
             <div class='doc-link'>
-                <a class='btn btn-outline-success' href="{{ doc.file.url }}" download>Download</a>
+                <a class='btn btn-outline-success' href="{% url 'blog:download_document' doc.pk %}" download>Download</a>
                 <a class='btn btn-secondary' href="{{ doc.file.url }}" target="_blank">온라인뷰어</a>
             </div> 
         </div>

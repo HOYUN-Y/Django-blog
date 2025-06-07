@@ -18,5 +18,6 @@ urlpatterns=[
     path('statement_detail/<int:pk>', views.statement_detail, name='statement_detail'),
     path('list_statements/', views.statement_list, name='list_statements'),
     path('guestbook/',views.guestbook, name='guestbook'),
+    path('documents/download/<int:document_id>/', views.download_document, name='download_document'),
     
 ]
