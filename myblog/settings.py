@@ -25,17 +25,17 @@ SECRET_KEY = 'django-insecure-=+k^--#0&-a^evz8adkwdf_ui_-5)$@-!$5gbrql_$ov%iopoy
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-''''''
+'''
 DEBUG = False
 ALLOWED_HOSTS = ['.ec2-13-125-208-9.ap-northeast-2.compute.amazonaws.com',
                  '.devprofessional.xyz',
                  ]
-
-
 '''
+
+''''''
 DEBUG = True
 ALLOWED_HOSTS = ['*']
-'''
+
 
 
 
@@ -143,10 +143,39 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 CKEDITOR_UPLOAD_PATH = 'uploads/'
+'''
 CKEDITOR_CONFIGS = {
-    'default':{
-        'toolbar':'Full',
-        'height':300,
-        'width':'100%'
+    'default': {
+        'toolbar': 'Custom',
+        'toolbar_Custom':[
+            ['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
+        ],
+        'extraPlugins': 'justify',
+    }
+}
+'''
+
+''''''
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Underline'],
+            ['TextColor','BGColor'],
+            ['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
+            ['NumberedList', 'BulletedList'],
+            ['Link', 'Unlink'],
+            ['HorizontalRule'],
+            ['Image', 'Embed'],
+            ['CodeSnippet', 'Maximize'],
+            ['RemoveFormat', 'Source'],
+        ],
+        'extraPlugins': ','.join([
+            'codesnippet', 'autogrow', 'justify',
+            'colorbutton', 'colordialog',  # ✅ 글자색 및 배경색
+            'horizontalrule', 
+        ]),
+        'height': 400,
+        'width': '100%',
     }
 }
