@@ -22,6 +22,10 @@ a {
 
 }
 
+.nav-link{
+    font-size: 1.3rem;
+}
+
 .navbar-toggler{
     border-color : #003999;
 }
@@ -365,13 +369,16 @@ a .post-card{
 
 .post-detail-content{
     overflow-x: auto;
+    overflow-wrap: break-word;
 }
 
 .post-detail-content img {
-  max-width: none;   /* 100% 제한 해제 */
-  width: auto;       /* 원본 너비 유지 */
+  max-width: 100%;   /* 100% 제한 해제 */
+  width: auto;
   height: auto;
   display: block;
+  margin: 1rem auto; 
+  
 }
 
 
@@ -534,7 +541,9 @@ a .post-card{
     }
 
     .post-detail-content img{
-        object-fit: cover;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
     }
     .project-item{
         height: 10rem;

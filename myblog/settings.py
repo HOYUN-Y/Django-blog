@@ -25,17 +25,17 @@ SECRET_KEY = 'django-insecure-=+k^--#0&-a^evz8adkwdf_ui_-5)$@-!$5gbrql_$ov%iopoy
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-''''''
+'''
 DEBUG = False
 ALLOWED_HOSTS = ['.ec2-13-125-208-9.ap-northeast-2.compute.amazonaws.com',
                  '.devprofessional.xyz',
                  ]
-
-
 '''
+
+
 DEBUG = True
 ALLOWED_HOSTS = ['*']
-'''
+''''''
 
 
 
@@ -161,6 +161,7 @@ CKEDITOR_CONFIGS = {
         'toolbar': 'Custom',
         'toolbar_Custom': [
             ['Bold', 'Italic', 'Underline'],
+            ['Font','FontSize'],
             ['TextColor','BGColor'],
             ['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
             ['NumberedList', 'BulletedList'],
@@ -171,9 +172,9 @@ CKEDITOR_CONFIGS = {
             ['RemoveFormat', 'Source'],
         ],
         'extraPlugins': ','.join([
-            'codesnippet', 'autogrow', 'justify',
+            'codesnippet', 'justify',
             'colorbutton', 'colordialog',  # ✅ 글자색 및 배경색
-            'horizontalrule', 
+            'horizontalrule', 'font',
         ]),
         'height': 400,
         'width': '100%',
