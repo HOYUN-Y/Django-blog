@@ -1,69 +1,9 @@
-.do-hyeon-regular {
-    font-family: "Do Hyeon", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-
-body {
-font-family:"Do Hyeon", sans-serif;
-}
-
-a {
-  text-decoration: none;     /* 밑줄 제거 */
-  color: inherit;            /* 기본 텍스트 색상 유지 */
-  outline: none;             /* 포커스 시 생기는 파란 테두리 제거 */
-}
-
-.custom-navbar {
-    background-color: #003999 !important;  /* ✅ 네비게이션 바 배경색 */
-    padding-top : 20px;
-    padding-bottom: 20px;
-    min-height: 100px;
-
-}
-
-.nav-link{
-    font-size: 1.3rem;
-}
-
-.navbar-toggler{
-    border-color : #003999;
-}
-
-
-.navbar-toggler-icon {
-    background-image: url(
-        "data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)'        stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22' /%3E%3C/svg%3E"
-        );
-}
-
-.custom-navbar .navbar-nav .nav-link {
-    color: white !important;  /* ✅ 네비게이션 링크 글자색 */
-}
-
-.custom-navbar .navbar-brand {
-    color: white !important;  /* ✅ 브랜드(로고) 색상 */
-}
-
-:root {
-    --bs-font-sans-serif: "Do Hyeon", sans-serif;
-  }
-::selection {
-  background: #003999;   /* 하이라이트 배경색 */
-  color: white;          /* 하이라이트된 글자 색 */
-}
-
-.base-container{
-    max-width:1200px;
-    margin:0px auto;
-    padding:0 20px;
-}
 
 .mySwiper {
   position: relative;
   padding-bottom: 20px;  /* pagination이 겹치지 않게 하단 공간 확보 */
   border-radius: 10px;
-  background-color: #c8daf9;
+  background-color: var(--thrid-color);
   z-index: 10;
 }
 
@@ -76,99 +16,6 @@ a {
   text-align: center;
   z-index: 10;
 }
-
-
-.footer{
-    background-color: #003999;
-    text-align: center;
-    padding-top: 0.75rem;
-    padding-bottom:0.2rem;
-    margin-top : 60px;
-}
-.footer-box{
-    margin-top: 40px;
-    padding-top: 20px;
-    color: white;
-
-}
-
-.footer-link-container{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.footer-link-container-icon a{
-    padding-left: 5px;
-    padding-right: 5px;
-}
-
-.footer-sitemap-container-link{
-    display: flex;
-    justify-content: center;
-}
-
-.footer-sitemap-container-link a{
-    padding-left:10px;
-    padding-right:10px;
-    
-}
-
-.powered-by-django {
-  text-align: center;
-  font-size: 0.9em;
-  color: #b6b6b6;
-}
-.powered-by-django img {
-  height: 18px;
-  vertical-align: middle;
-  margin-right: 4px;
-}
-
-.custom-hr{
-    width:100%;
-    height:2px;
-    background-color: #003999;
-    margin-top: 30px;
-}
-
-
-.btn.btn-primary,.btn.btn-secondary, .btn.btn-outline-success{
-    border-radius: 0;
-}
-.btn.btn-primary{
-    background-color: #003999;
-}
-
-.btn.btn-secondary{
-    background-color: gray;
-    color:white;
-    border-color: gray;;
-}
-
-.btn.btn-primary:hover {
-  background-color: white;
-  border-color: #155ab6;
-  color: #003999;
-}
-
-.btn.btn-secondary:hover{
-    background-color: white;
-    border-color: gray;
-    color:black;
-}
-
-.btn.btn-outline-success{
-    background-color: green;
-    color:white;
-}
-
-.btn.btn-outline-success:hover{
-    background-color: white;
-    border-color: green;
-    color:green;
-}
-
 
 
 .search-box{
@@ -211,10 +58,10 @@ a {
     align-items: center;
     width: 100%;
     height: auto;
-    border: 1px solid #003999;
+    border: 1px solid #00215d;
     padding: 10px;
     margin-bottom: 10px;
-    box-shadow: 0 0 5px #003999;
+    box-shadow: 0 0 5px #00215d;
     
 }
 

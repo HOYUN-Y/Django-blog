@@ -52,7 +52,7 @@
 }
 
 .profile-section h5{
-    color: #003999;
+    color: var(--primary-color);
     font-weight: bold;
     padding-bottom: 20px;
 }

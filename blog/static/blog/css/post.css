@@ -100,7 +100,7 @@ a .post-card{
 }
 
 .post-bg-no-img{
-    background-color: white;
+    background-color: var(--linewith-dark);
     width:100%;
     height:300px;
 }
